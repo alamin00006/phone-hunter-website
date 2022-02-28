@@ -1,21 +1,23 @@
 const searchMe = () =>{
-    const error = document.getElementById('error-handeling');
+    
   const searchBox = document.getElementById('search-box').value;
 
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox}`;
   fetch(url)
   .then(res => res.json())
-  .then(data =>  showDisplay(data.data))
+  .then(data => showDisplay(data.data))
    
   document.getElementById('search-box').value = '';
 }
 
 const showDisplay = phones =>{
-   
+    // console.log(phones)
+
+    document.getElementById('div-container').innerHTML = '';
   const divContainer = document.getElementById('div-container');
   for(const phone of phones){
-    // console.log(phone)
-    const div = document.createElement('div');
+   
+        const div = document.createElement('div');
     div.classList.add('col-lg-4')
     div.classList.add('col-sm-12')
    
@@ -29,7 +31,7 @@ const showDisplay = phones =>{
     </div>
   </div>`
    divContainer.appendChild(div);
-
+      
    }
 }
 
