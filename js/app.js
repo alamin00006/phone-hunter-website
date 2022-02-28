@@ -1,18 +1,20 @@
 const searchMe = () =>{
+    const error = document.getElementById('error-handeling');
   const searchBox = document.getElementById('search-box').value;
-  if(searchBox == ''){
-    console.log('hello')
-  }
+
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox}`;
   fetch(url)
   .then(res => res.json())
-  .then(data => showDisplay(data.data))
+  .then(data =>  showDisplay(data.data))
+   
   document.getElementById('search-box').value = '';
 }
-const showDisplay = (phones) =>{
+
+const showDisplay = phones =>{
+   
   const divContainer = document.getElementById('div-container');
-   for(const phone of phones){
-    console.log(phone)
+  for(const phone of phones){
+    // console.log(phone)
     const div = document.createElement('div');
     div.classList.add('col-lg-4')
     div.classList.add('col-sm-12')
@@ -47,11 +49,14 @@ const showOf = show =>{
     
     div.innerHTML = `
     <img width = "300px" src="${show.image}" alt="">
-     <p> Release Time : ${show.releaseDate}</p>
+    <p> Release Time : ${show.releaseDate}</p>
      <P> Storage : ${show.mainFeatures.storage}</P>
      <P> Display Size : ${show.mainFeatures.displaySize}</P>
      <P> ChipSet : ${show.mainFeatures.chipSet}</P>
      <P class = "fw-bold"> Memory : ${show.mainFeatures.memory}</P>
+
+     <P> Others : ${show.others.WLAN}, bluetooth : ${show.others.Bluetooth}, GPS : ${show.others.GPS}, NFC : ${show.others.NFC}, Radio : ${show.others.Radio} </P>
+     <p> Sensor Show : ${show.mainFeatures.sensors} </p>
      `
     
      showId.appendChild(div);
