@@ -13,30 +13,32 @@
 <body>
     <h1 class="text-center bg-info text-white fw-bold">Phone Store</h1>
   <div class="container">
-   
+   <!-- searching part -->
     <div class="input-group mb-3 w-50 mx-auto">
         <input  id="search-box" type="text" class="form-control " placeholder="Type your phone Name" aria-label="Recipient's username" aria-describedby="button-addon2">
- 
-        <button onclick="searchMe()" id="search-button" class="btn btn-outline-secondary bg-warning text-white fw-bold" type="button" >Search</button>
+        <!-- searching button -->
+         <button onclick="searchMe()" id="search-button" class="btn btn-outline-secondary bg-warning text-white fw-bold" type="button" >Search</button>
       </div>
+      <!-- error showing part -->
      <div id="error-handeling" >
       <p class="text-center text-danger fs-5">
         Please Someting Search Valid Phone
       </p>
  
      </div>
+     <!-- details show part -->
       <div id="show" class="w-100 mx-auto text-center ">
        
- 
       </div>
+      <!--all mobile showing part-->
       <div id="div-container" class="row gy-5">
        
- 
-      </div>
+       </div>
   </div>
  
 <!-- bootstrap js link -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- javascript link -->
 <script src="./js/app.js"></script>  
 </body>
 </html>
