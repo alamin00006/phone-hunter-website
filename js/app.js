@@ -1,23 +1,38 @@
 const searchMe = () =>{
+  document.getElementById('error-handeling').style.display = 'none';
+  const search = document.getElementById('search-box');
+  const searchBox = search.value;
+     const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data =>  {
+       if(searchBox == '' ||searchBox != showDisplay(data.data)){
+        document.getElementById('error-handeling').style.display = 'block';
+     
+    }else{
+      showDisplay(data.data)
+      document.getElementById('error-handeling').style.display = 'none';
+    }
+    })
+      
+ 
+  
     
-  const searchBox = document.getElementById('search-box').value;
-
-  const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox}`;
-  fetch(url)
-  .then(res => res.json())
-  .then(data => showDisplay(data.data))
-   
   document.getElementById('search-box').value = '';
 }
 
-const showDisplay = phones =>{
+const showDisplay = (phones) =>{
     // console.log(phones)
-
+   
     document.getElementById('div-container').innerHTML = '';
   const divContainer = document.getElementById('div-container');
-  for(const phone of phones){
    
-        const div = document.createElement('div');
+  const search = document.getElementById('search-box');
+ 
+    for(const phone of phones){
+      
+        // document.getElementById('error-handeling').style.display = 'none'
+      const div = document.createElement('div');
     div.classList.add('col-lg-4')
     div.classList.add('col-sm-12')
    
@@ -31,8 +46,12 @@ const showDisplay = phones =>{
     </div>
   </div>`
    divContainer.appendChild(div);
-      
+   
+    
    }
+
+      
+   
 }
 
 const detailsMe = details=>{
