@@ -55,7 +55,7 @@ const detailsMe = details=>{
 }
  
 const showOf = detailsShow =>{
-    console.log(show)
+ 
     const showId = document.getElementById('show');
          showId.innerHTML = '';
     const div = document.createElement('div');
@@ -78,10 +78,10 @@ const showOf = detailsShow =>{
       </div>
      <p> <span class = "fw-bold">Sensor Show</span> : ${detailsShow.mainFeatures.sensors} </p>
    
-     `
+     `;
     //  release time error handeling
      const p = document.createElement('p');
-         
+           p.classList.add('text-danger');
           if(p.innerText ==detailsShow.releaseDate){
             p.innerText = 'Relese time not found';
          
